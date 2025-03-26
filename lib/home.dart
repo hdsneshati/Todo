@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_bloc_project/todo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import './main.dart';
 import './todo_bloc/todo_bloc.dart';
 class HomeScreen extends StatefulWidget {
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child:BlocBuilder<TodoBloc,TodoState>(
             builder:(context, state) {
               if(state.status == TodoStatus.success){
-                return return ListView.builder(
+                 return ListView.builder(
                   itemCount: state.todos.length,
                   itemBuilder: (context,int i){
                     return Card(
