@@ -4,7 +4,6 @@ import 'package:flutter_application_bloc_project/todo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import './main.dart';
 import './todo_bloc/todo_bloc.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -131,7 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body:Padding(
         padding: const EdgeInsets.all(0.8),
           child:BlocBuilder<TodoBloc,TodoState>(
-            builder:(context, state) {
+            builder:(context, state) 
+            {
               if(state.status == TodoStatus.success){
                  return ListView.builder(
                   itemCount: state.todos.length,
@@ -174,16 +174,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                ),
                           ),
                       ),
-                    );
-                  }
-                  );
-            }else if(state.status == TodoStatus.initial){
-              return const Center(child: CircularProgressIndicator());    
-            }
-            else{
-              return Container();
-            }
-            },
+                    );  
+                  } 
+                  ); 
+              }else if(state.status == TodoStatus.loading){
+                return const Center(child: CircularProgressIndicator());    
+              }             
+              else if(state.status == TodoStatus.initial)  {
+               return Container(child: const Center(child: Text('add some todos')));
+              }
+               else{
+                return Container(child: const Center(child: Text('Error Occured')));
+              }
+          },         
           )
         ),
       );
