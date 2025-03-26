@@ -6,13 +6,16 @@ part 'todo_event.dart';
 part 'todo_state.dart';
 
 class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
-  TodoBloc() : super(TodoState()) {
-    on<TodoEvent>((event, emit) {
-
-      // TODO: implement event handler
+  TodoBloc() : //سازنده
+    super(TodoState()) {//مقدار پیشفرض تعیین میکنه
+    
+    //هر رویدادی که از نوع تودو ایونت باشد، باید پردازش شو
+     on<TodoEvent>((event, emit) {//برای ارسال یک حالت جدید (new state) استفاده می‌شود.      
     });
+
+
      void _onStarted(
-      Todostarted event,
+      Todostarted event,//کلاسش خالیه ولی استفاده شده!!!!!!!
       Emitter<TodoState> emit,//باهاش وضعیت تغییر میدیم
     ){
       if(state.status == TodoStatus.success) return;
@@ -20,7 +23,7 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
         todos: state.todos,
         status: TodoStatus.success,));
     }
-
+    
 
      void _onAddTodo(
       AddTodo event,
@@ -53,7 +56,6 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
     }
     
     }
-
      void _onRemoveTodo(
       RemoveTodo event,
       Emitter<TodoState> emit,
@@ -131,3 +133,5 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
     throw UnimplementedError();
   }
 }
+  
+ 
