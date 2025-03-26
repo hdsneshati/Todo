@@ -21,31 +21,4 @@ class Todo{
       isDone: isDone?? this.isDone,
     );
   }
-  //اگر بخواهید یک Todo را برای سرور ارسال کنید، باید آن را به JSON تبدیل کنید.
-//تبدیل json->todo
-  factory Todo.fromJson(Map<String,dynamic> json){
-    return Todo(
-      title: json['title'],
-      subtitle: json['subtitle'],
-      isDone: json['isDone'],
-    );
-    
-  }
-
-  //تبدیل json<-todo
-  Map<String,dynamic> toJson(){
-    return {
-      'title':title,
-      'subtitle':subtitle,
-      'isDone':isDone,
-    };
-  }
-  @override
-  String toString(){
-    return '''Todo:{
-    title:$title\n,
-    subtitle:$subtitle\n,
-    isDone:$isDone\n
-    }''';
-  }
 }
