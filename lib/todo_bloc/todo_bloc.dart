@@ -1,11 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../todo.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 part 'todo_event.dart';
 part 'todo_state.dart';
 
-class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
+class TodoBloc extends Bloc<TodoEvent, TodoState> {
   TodoBloc() : //سازنده
     super(TodoState()) {//مقدار پیشفرض تعیین میکنه
     
@@ -121,17 +120,7 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
  
     }
 
-  @override
-  TodoState? fromJson(Map<String, dynamic> json) {
-    
-    throw UnimplementedError();
-  }
   
-  @override
-  Map<String, dynamic>? toJson(TodoState state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
 }
   
  
